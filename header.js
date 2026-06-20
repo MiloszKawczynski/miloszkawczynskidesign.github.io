@@ -1,9 +1,11 @@
 (function () {
+  const BASE = '/miloszkawczynskidesign.github.io';
+
   const html = `
   <header class="header">
     <div class="container">
       <div class="nav">
-        <a href="/index.html" class="nav__logo">Miłosz Kawczyński</a>
+        <a href="${BASE}/index.html" class="nav__logo">Miłosz Kawczyński</a>
         <div class="mode-toggle" id="modeToggle" role="switch" aria-checked="false" aria-label="Tryb: Design / Programming" tabindex="0">
           <span class="mode-toggle__label">💡 Design</span>
           <div class="mode-toggle__track">
@@ -12,9 +14,9 @@
           <span class="mode-toggle__label">Programming 💻</span>
         </div>
         <nav class="tabs" role="tablist">
-          <a href="/index.html#o-mnie"   class="tab" role="tab">O mnie</a>
-          <a href="/index.html#projekty" class="tab" role="tab">Projekty</a>
-          <a href="/index.html#kontakt"  class="tab" role="tab">Kontakt</a>
+          <a href="${BASE}/index.html#o-mnie"   class="tab" role="tab">O mnie</a>
+          <a href="${BASE}/index.html#projekty" class="tab" role="tab">Projekty</a>
+          <a href="${BASE}/index.html#kontakt"  class="tab" role="tab">Kontakt</a>
         </nav>
       </div>
     </div>
