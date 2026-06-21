@@ -66,9 +66,10 @@ const CHARACTER_POINTS_DURATION = 600;
 
   function shake(target) 
   {
-    if (target.classList.contains(SHAKE_CLASS)) return;
-    target.classList.add(SHAKE_CLASS);
-    setTimeout(() => target.classList.remove(SHAKE_CLASS), SHAKE_MS);
+    const inner = target.querySelector('.shake-target') ?? target;
+    if (inner.classList.contains(SHAKE_CLASS)) return;
+    inner.classList.add(SHAKE_CLASS);
+    setTimeout(() => inner.classList.remove(SHAKE_CLASS), SHAKE_MS);
   }
 
   function getObstacles() 
@@ -180,6 +181,7 @@ const CHARACTER_POINTS_DURATION = 600;
           if (Math.abs(vy) < RESTITUTION) 
           {
             state = "idle";
+            vy = 0;
           }
         }
 
@@ -200,7 +202,7 @@ const CHARACTER_POINTS_DURATION = 600;
     for (const o of obstacles)
     {
       let cx = x + hw / 2;
-      let fy = y + hh + 1;
+      let fy = y + hh + 3;
 
       if (o.isViewport)
       {

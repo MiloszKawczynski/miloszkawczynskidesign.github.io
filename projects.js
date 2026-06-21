@@ -87,7 +87,7 @@ function addProject({ name, image = null, desc, types = [], event, tags = [], pe
 
   const buildCard = (visibleTags, isBlog = false) => `
     <a class="card-wrap${isBlog ? ' card-wrap--blog' : ''} bounce-target" href="${link}">
-      <article class="card">
+      <article class="card shake-target">
 
         <div class="card__thumb">
           ${thumb}
