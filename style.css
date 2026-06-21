@@ -356,7 +356,8 @@ body.mode--programming .card-wrap:hover .card {
 
 .card__event--in-production { color: #2a7a3a; }
 .card__event--released      { color: #2a4a9a; }
-.card__event--jam           { color: var(--c-text-muted); }
+.card__event--jam           { color: #bd7a3b; }
+.card__event--abandoned     { color: #b31e36; }
 
 /* Body */
 .card__body {
@@ -508,6 +509,7 @@ body.mode--programming .card__footer        { border-top-color: #2a2a4a; color: 
 body.mode--programming .card__thumb-placeholder { background: #2a2a4a; color: var(--c-mid); }
 body.mode--programming .card__event--in-production { color: #4aaa5a; }
 body.mode--programming .card__event--released      { color: #6a8aee; }
+body.mode--programming .card__event--abandoned     { color: #ee6a80; }
 
 body.mode--programming .btn--ghost          { color: var(--c-light); border-color: var(--c-light); }
 body.mode--programming .footer              { border-top-color: #2a2a4a; color: #8888aa; }

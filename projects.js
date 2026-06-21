@@ -35,11 +35,13 @@ const TYPE_LABELS = {
 const EVENT_CLASSES = {
   'in-production': 'card__event--in-production',
   'released':      'card__event--released',
+  'abandoned':     'card__event--abandoned',
 };
 
 const EVENT_LABELS = {
   'in-production': 'In production',
   'released':      'Released',
+  'abandoned':     'Abandoned',
 };
 
 function updateBlogSection(mode)
