@@ -1,9 +1,9 @@
-const CHARACTER_SRC = new URL('./ragdoll.png', document.currentScript.src).href;
-const CHARACTER_WALK = new URL('./ragdollWalk.gif', document.currentScript.src).href;
-const CHARACTER_POINTS = new URL('./ragdollPoints.gif', document.currentScript.src).href;
-const CHARACTER_POINTSLOOP = new URL('./ragdollPointsLoop.gif', document.currentScript.src).href;
-const CHARACTER_DRAG = new URL('./ragdollDrag.gif', document.currentScript.src).href;
-const CHARACTER_THROW = new URL('./ragdollThrow.png', document.currentScript.src).href;
+const CHARACTER_SRC = new URL('./ragdoll/ragdoll.png', document.currentScript.src).href;
+const CHARACTER_WALK = new URL('./ragdoll/ragdollWalk.gif', document.currentScript.src).href;
+const CHARACTER_POINTS = new URL('./ragdoll/ragdollPoints.gif', document.currentScript.src).href;
+const CHARACTER_POINTSLOOP = new URL('./ragdoll/ragdollPointsLoop.gif', document.currentScript.src).href;
+const CHARACTER_DRAG = new URL('./ragdoll/ragdollDrag.gif', document.currentScript.src).href;
+const CHARACTER_THROW = new URL('./ragdoll/ragdollThrow.gif', document.currentScript.src).href;
 const CHARACTER_WIDTH = 64;
 const CHARACTER_HEIGHT = 64;
 const BOUNCE_CLASS   = 'bounce-target';
