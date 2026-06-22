@@ -4,6 +4,7 @@ const CHARACTER_POINTS = new URL('./ragdoll/ragdollPoints.gif', document.current
 const CHARACTER_POINTSLOOP = new URL('./ragdoll/ragdollPointsLoop.gif', document.currentScript.src).href;
 const CHARACTER_DRAG = new URL('./ragdoll/ragdollDrag.gif', document.currentScript.src).href;
 const CHARACTER_THROW = new URL('./ragdoll/ragdollThrow.gif', document.currentScript.src).href;
+const CHARACTER_STANDUP = new URL('./ragdoll/ragdollStandup.gif', document.currentScript.src).href;
 const CHARACTER_WIDTH = 64;
 const CHARACTER_HEIGHT = 64;
 const BOUNCE_CLASS   = 'bounce-target';
@@ -13,6 +14,7 @@ const GRAVITATION    = 0.81;
 const SHAKE_MS       = 380;
 const SHAKE_CLASS    = 'is-shaking';
 const CHARACTER_POINTS_DURATION = 600;
+const CHARACTER_STANDINGUP_DURATION = 600;
 
 (function () 
 {
@@ -61,6 +63,8 @@ const CHARACTER_POINTS_DURATION = 600;
   let lastClientX = 0;
   let lastClientY = 0;
   let swing = 0;
+  let timeout = null;
+  let isTimeoutOn = false;
   const VEL_SAMPLES = 1;
 
   let rafId = null;
@@ -151,7 +155,8 @@ const CHARACTER_POINTS_DURATION = 600;
           vy *= -RESTITUTION;
           if (Math.abs(vy) < RESTITUTION) 
           {
-            state = "idle";
+            isTimeoutOn = false;
+            state = "standUp";
             vy = 0;
           }
           hit = true;
@@ -190,7 +195,8 @@ const CHARACTER_POINTS_DURATION = 600;
           vy *= -RESTITUTION; 
           if (Math.abs(vy) < RESTITUTION) 
           {
-            state = "idle";
+            isTimeoutOn = false;
+            state = "standUp";
             vy = 0;
           }
         }
@@ -295,18 +301,27 @@ const CHARACTER_POINTS_DURATION = 600;
         vx = Math.sign(target - x);
         x += vx;
         img.style.transform = vx > 0 ? 'scaleX(1)' : 'scaleX(-1)';
+        changeSprite(CHARACTER_WALK);
       }
       else
       {
         img.style.transform = target < window.innerWidth * 0.5 ? 'scaleX(1)' : 'scaleX(-1)';
-        state = "points";
+        changeSprite(CHARACTER_SRC);
+        
+        if (!isTimeoutOn)
+        {
+          isTimeoutOn = true;
+          timeout = setTimeout(() => 
+          {
+            state = "points";
+            isTimeoutOn = false;
+          }, CHARACTER_POINTS_DURATION);
+        }
       }
 
       resolveCollisions(false);
 
       setPos(x, y);
-
-      changeSprite(CHARACTER_WALK);
     }
 
     if (state === "points")
@@ -319,10 +334,14 @@ const CHARACTER_POINTS_DURATION = 600;
       if (img.src != CHARACTER_POINTSLOOP)
       {
         changeSprite(CHARACTER_POINTS);
-        setTimeout(() => 
+        if (!isTimeoutOn)
         {
-          changeSprite(CHARACTER_POINTSLOOP);
-        }, CHARACTER_POINTS_DURATION);
+          isTimeoutOn = true;
+          timeout = setTimeout(() => 
+          {
+            changeSprite(CHARACTER_POINTSLOOP);
+          }, CHARACTER_POINTS_DURATION);
+        }
       }
 
       resolveCollisions(false);
@@ -362,6 +381,38 @@ const CHARACTER_POINTS_DURATION = 600;
       }
     }
 
+    if (state == "standUp")
+    {
+      if (checkIfInTheAir())
+      {
+        state = "throw";
+      }
+
+      changeSprite(CHARACTER_STANDUP);
+
+      if (swing < 90 || swing > 270)
+      {
+        img.style.transform = `rotate(${0}deg) scaleX(-1)`;
+      }
+      else
+      {
+        img.style.transform = `rotate(${0}deg) scaleX(1)`;
+      }
+
+      if (!isTimeoutOn)
+      {
+        isTimeoutOn = true;
+        timeout = setTimeout(() => 
+        {
+          state = "idle";
+          isTimeoutOn = false;
+        }, CHARACTER_STANDINGUP_DURATION);
+      }
+
+      resolveCollisions(false);
+
+      setPos(x, y);
+    }
 
     rafId = requestAnimationFrame(tick);
   }
@@ -371,6 +422,8 @@ const CHARACTER_POINTS_DURATION = 600;
   function onPointerDown(e) 
   {
     e.preventDefault();
+    clearTimeout(timeout);
+    isTimeoutOn = false;
     state = "drag";
     el.style.cursor = 'grabbing';
     dragOffX = e.clientX - x;
