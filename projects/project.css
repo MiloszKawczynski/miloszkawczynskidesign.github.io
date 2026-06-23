@@ -470,3 +470,64 @@ body.mode--programming .credits-table td       { color: #c0c0d8; border-bottom-c
   .project-gallery { grid-template-columns: 1fr; }
   .info-item       { grid-template-columns: 90px 1fr; }
 }
+
+.feature-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 1.25rem 0;
+}
+
+.feature-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.55rem;
+
+  color: var(--c-text);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 300;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.feature-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: var(--c-text-muted);
+  font-size: 0.9rem;
+}
+
+body.mode--programming .feature-list li {
+  color: #c0c0d8;
+}
+
+body.mode--programming .feature-list li::before {
+  color: #66668f;
+}
+
+@media (max-width: 768px) {
+  .feature-columns {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.strong {
+  font-weight: 900;
+  color: var(--c-light);
+}
+
+body.mode--programming .strong {
+  color: var(--c-light);
+}

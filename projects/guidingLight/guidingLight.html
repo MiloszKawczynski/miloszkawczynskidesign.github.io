@@ -71,22 +71,114 @@
             </div>
           </section>
 
+          <section class="project-section">
+            <h2 class="project-section__title">The Engine</h2>
+            <p>One of the great features of the Lodz University of Technology curriculum is that, during the sixth semester, students are organized into teams and undertake a semester-long project to develop their own game engine and build a game using it.</p>
+            <p>We've built our Engine from scratch in modern C++23. The architecture follows a Unity-style Object-Component model. The graphics API started as OpenGL but was ported to DirectX 11 early-development. A custom Python-based header tool — inspired by Unreal's UnrealHeaderTool — generates serialization and deserialization code for all components by parsing C++ headers automatically.</p>
+
+            <div class="feature-columns">
+              <ul class="feature-list">
+                <li>2D physics engine (collision detection & resolution)</li>
+                <li>Runtime prefab loading</li>
+                <li>UI system</li>
+                <li>Scene and prefab editor</li>
+              </ul>
+
+              <ul class="feature-list">
+                <li>Resource Manager (shared models & textures & shaders)</li>
+                <li>Input and Event systems</li>
+                <li>Custom EngineHeaderTool (Python, codegen)</li>
+                <li>Shader hot-swapping</li>
+              </ul>
+            </div>
+        </section>
+
+          <div class="project-hero-media bounce-target">
+            <div class="shake-target">
+              <img src="engine.gif" alt="Custom editor — gizmos, curve editors, debug drawings, and component inspectors." />
+              <span class="project-hero-media__caption">Custom editor — gizmos, curve editors, debug drawings, and component inspectors.</span>
+            </div>
+          </div>
+
+          <section class="project-section">
+            <h2 class="project-section__title">Rendering</h2>
+            <p>The renderer uses deferred shading for opaque geometry, switching to forward rendering for transparent objects and UI. A range of real-time rendering techniques were implemented to achieve the game's cold, moody arctic atmosphere.</p>
+
+            <div class="feature-columns">
+              <ul class="feature-list">
+                <li>Gerstner wave water geometry</li>
+                <li>Screen Space Reflections (SSR)</li>
+                <li>Shadow mapping (point lights)</li>
+                <li>Particle systems (CPU)</li>
+                <li>Percentage-Closer Soft Shadows</li>
+              </ul>
+
+              <ul class="feature-list">
+                <li>Volumetric light scattering</li>
+                <li>Screen Space Refraction</li>
+                <li>SSAO</li>
+                <li>FXAA</li>
+                <li>Deferred + forward hybrid pipeline</li>
+              </ul>
+            </div>
+          </section>
+
           <section class="project-section" id="my-contributions">
             <h2 class="project-section__title">My Contributions</h2>
 
             <div class="contrib contrib--programming">
+              <p>I was the lead designer on the project, but also served as a programmer, contributing to the engine, game systems, and gameplay. Most of the additions, systems, and tools I created arose from the need to use them as a designer and to reimplement gameplay from previously prepared prototypes in our engine.</p>
+            </div>
+
+            <div class="contrib contrib--programming">
               <h3 class="contrib__title">Engine Programming</h3>
-              <p>Robiłem EHT</p>
+              <p><span class="strong">Engine Header Tool</span> - A system inspired by Unreal's Unreal Header Tool, written in Python. This tool automatically creates editor, serialization, and deserialization code for components and their public variables. The script uses regex to detect, create, and remove appropriate code fragments. The automatically created code was backward compatible, meaning it ignored newly added variables during deserialization. The script runs every time the game project is built.</p>
+              <p><span class="strong">Paths and Curves</span> - Data structures and tools for modifying them, inspired by similar tools from the GameMaker engine. These tools allow for convenient modification of points in a path or curve. They were used to define the paths along which ships were created in the game, the camera traversed when changing level, and the curves were used to scale the difficulty level, lighthouse development, and so on.</p>
+              <p><span class="strong">Level Creation Tools</span> - They allow the creation of floes with different appearances but with sizes determined by the designer, as well as the automatic placement of objects marking the ends of the loading bay.</p>
+              <p><span class="strong">Tools and keyboard shortcuts to make using the editor easier:</span></p>
+                <div class="feature-columns">
+                  <ul class="feature-list">
+                    <li>F2 to rename</li>
+                    <li>ctrl+D to copy entity</li>
+                    <li>Del to delete entity</li>
+                    <li>Controlling the camera</li>
+                  </ul>
+
+                  <ul class="feature-list">
+                    <li>A system for assigning custom names to components (e.g. to distinguish several different curves in one object)</li>
+                    <li>Searching for components by name</li>
+                    <li>automatic segregation of assets into tabs depending on type (models, textures, sounds, scenes, prefabs)</li>
+                    <li>LMB to load scenes and prefabs and ctrl+LMB to additively load</li>
+                  </ul>
+                </div>
+              <p>The foundations for the UI system.</p>
             </div>
 
             <div class="contrib contrib--programming">
               <h3 class="contrib__title">Systems Programming</h3>
-              <p>Robiłem system generatywny statków i AI</p>
+              <p><span class="strong">Generative system</span> - It allows for the creation of events that spawns specific ships on maps, so that subsequent ship appearances are neither entirely random nor predictable, and each player has a unique, yet similar, planned experience. The designer can create pools and designate which ships will appear in a given pool, whether the pool will create them sequentially, randomly, or all at once. Additionally, when the system detects that a player is a few points short of the winning of the level, it spawns the calculated number of ships of the appropriate size to complete the level.</p>
+              <p><span class="strong">Ship AI system</span> - A state machine that organizes the ships logic code into specific states: sailing forward, avoiding an obstacle, following the light, pirating, etc.</p>
+              <p><span class="strong">Tutorial event system</span> - It allows to create stages that guide the player through the tutorial. The user assigns specific events for a given stage: dialogue, sound, prompt, creation of a specific ship, etc., as well as a condition for its fulfillment, such as collecting a specific cargo, entering a lighthouse, etc. The system checks whether the player has met the required condition and then proceeds to the next stage by activating the appropriate events.</p>
             </div>
 
             <div class="contrib contrib--programming">
               <h3 class="contrib__title">Gameplay Programming</h3>
-              <p>Robiłem gameplay</p>
+              <p>One of my main responsibilities was to reimplement the mechanisms I had previously created in the prototype on the GameMaker engine:</p>
+              <div class="feature-columns">
+                  <ul class="feature-list">
+                    <li>The movement of the lighthouse keeper</li>
+                    <li>Ship Logic and Their Interaction with Light</li>
+                    <li>Ship spawning</li>
+                    <li>Collecting cargos</li>
+                  </ul>
+
+                  <ul class="feature-list">
+                    <li>Flash skill</li>
+                    <li>Upgrading the lighthouse</li>
+                    <li>Implementation of most models and textures</li>
+                    <li>etc.</li>
+                  </ul>
+                </div>
             </div>
 
             <div class="contrib contrib--design">
