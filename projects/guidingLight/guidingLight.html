@@ -46,7 +46,7 @@
 
           <section class="project-section" id="gallery">
             <h2 class="project-section__title">Screenshots</h2>
-            <div class="project-gallery project-gallery--3">
+            <div class="project-gallery project-gallery--4">
               <div class="project-gallery__item bounce-target">
                 <div class="shake-target">
                   <a href="guidingLight1.png" target="_blank">
@@ -65,6 +65,13 @@
                 <div class="shake-target">
                   <a href="guidingLight3.png" target="_blank">
                     <img src="guidingLight3.png" alt="Screenshot 3" />
+                  </a>
+                </div>
+              </div>
+              <div class="project-gallery__item bounce-target">
+                <div class="shake-target">
+                  <a href="guidingLight4.png" target="_blank">
+                    <img src="guidingLight4.png" alt="Screenshot 4" />
                   </a>
                 </div>
               </div>
@@ -138,20 +145,20 @@
               <p><span class="strong">Tools and keyboard shortcuts to make using the editor easier:</span></p>
                 <div class="feature-columns">
                   <ul class="feature-list">
+                    <li>A system for assigning custom names to components (e.g. to distinguish several different curves in one object)</li>
                     <li>F2 to rename</li>
                     <li>ctrl+D to copy entity</li>
                     <li>Del to delete entity</li>
-                    <li>Controlling the camera</li>
                   </ul>
 
                   <ul class="feature-list">
-                    <li>A system for assigning custom names to components (e.g. to distinguish several different curves in one object)</li>
-                    <li>Searching for components by name</li>
                     <li>automatic segregation of assets into tabs depending on type (models, textures, sounds, scenes, prefabs)</li>
+                    <li>Searching for components by name</li>
+                    <li>Controlling the camera</li>
                     <li>LMB to load scenes and prefabs and ctrl+LMB to additively load</li>
                   </ul>
                 </div>
-              <p>The foundations for the UI system.</p>
+              <p><span class="strong">The foundations for the UI system.</span></p>
             </div>
 
             <div class="contrib contrib--programming">
@@ -183,12 +190,219 @@
 
             <div class="contrib contrib--design">
               <h3 class="contrib__title">Game Design</h3>
-              <p>Robiłem design</p>
+              <p>As a design lead, I was responsible for coming up with the game idea and core mechanics, implementing them through multiple prototypes, iterating on the ideas and mechanics multiple times, and responding to feedback.</p>
+              <h4>Idea</h4>
+              <p>The engine and game were developed during sixth semester of college. In addition to the technical requirements, there were also certain design constraints, including two randomly selected genres, three theme words, and a ban on shooting mechanics. The words and genres assigned to our team were:</p>
+              <div class="feature-columns">
+                <ul class="feature-list">
+                  <li>Owl (pl. Sowa)</li>
+                  <li>Wolf Pack (pl. Wataha)</li>
+                  <li>Courier (pl. Kurier)</li>
+                </ul>
+
+                <ul class="feature-list">
+                  <li>Tower Defense</li>
+                  <li>Pickup & Delivery</li>
+                </ul>
+              </div>
+              <p>As with game jams, I began the process of analyzing the entries, listing all possible meanings, associations, and phraseological units, and in the case of genres, their characteristics and representatives. It was very difficult to find a common element upon which to build the gameplay. Fortunately, these entries were open to quite flexible interpretations, allowing me to form a specific idea:</p>
+              <p><i>A game in which you are a lighthouse keeper and guide ships safely across the river, and at the same time a postman and collect the delivered parcels.</i></p>
+              <p>The lighthouse keeper's job is some kind of tower defense, and the ships that pass by are our pack (seadogs, literally "sea wolves" in Polish). The owl is the weakest of the connections, but it was this word that originally drew me to the idea of ​​a lighthouse, through one simple, foolish association: the lighthouse's light rotates in the same way an owl turns its head.</p>
+              <h4>Prototypes</h4>
+              <p>The first iterations of the prototype revealed some advantages and disadvantages of the original concept. Too much of the game was dedicated to land, and collecting packages from oncoming cars was largely separated from the gameplay of controlling ships. However, controlling ships using light was a lot of fun, while also being simple enough to give the player time to exit the lighthouse and act as a courier—what later turned out to be a key element of our game: time management.</p>
+
+              <div class="project-hero-media bounce-target">
+                <div class="shake-target">
+                  <img src="prototype1.gif" alt="First prototype." />
+                  <span class="project-hero-media__caption">First prototype.</span>
+                </div>
+              </div>
+
+              <p>In the next two prototypes, I explored two approaches to focusing more of the action on the water. The first completely eliminated exiting the lighthouse, allowing ships to approach from any direction, seemingly intended to increase interaction with ships. The second expanded the water area, but shifted courier interactions to collecting goods from ships. This is much closer to the previous version and naturally developed the concept further.</p>
+
+              <div class="project-gallery project-gallery--2">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="prototype2.gif" alt="Open sea prototype." />
+                    <span class="project-hero-media__caption">Open sea prototype.</span>
+                  </div>
+                </div>
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="prototype3.gif" alt="Ships with cargo prototype." />
+                    <span class="project-hero-media__caption">Ships with cargo prototype.</span>
+                  </div>
+                </div>
+              </div>
+
+              <p>It turned out that the version where you had to navigate ships on the open sea had a significant problem with balance. The ships required much more attention than in the second variant because they had to make larger turns. With fewer ships, the game became quite boring, and with more, it quickly became overwhelming. The second variant gained where the first one fails. If the player had set the ships on the right course, they could easily exit the lighthouse and take care of their courier duties. When more ships appeared, they had to rush to the lighthouse to save the day. This made me realize the most important change in approach to thinking about this game:</p>
+              <p><i>The player is not supposed to guide the ships, but only to guide them on the right course.</i></p>
+              <p>Subsequent prototypes built on this idea, adding mechanics and interactions that the lighthouse keeper could perform outside the lighthouse. Although I was quite satisfied with the resulting design, our team still encountered negative feedback. In an attempt to address this, I created further prototypes, often with radically different mechanics. However, these were also not well-received. <a href="https://ganszyniec.com" target="_blank" rel="noopener">Artur Ganszyniec</a>, teacher of "Story Design in Computer Games" course suggested that the negative feedback might stem not from the bad design, but from the game looking bad. However, no one included this in their feedback because they knew it was just a prototype, so they were convinced the problem lay elsewhere. So the final step before moving the game to our own engine was to create a "Beautiful" prototype.</p>
+
+              <div class="project-gallery project-gallery--2">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="prototype4.gif" alt="'Ugly' prototype." />
+                    <span class="project-hero-media__caption">"Ugly" prototype.</span>
+                  </div>
+                </div>
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <video autoplay muted loop playsinline>
+                      <source src="prototype5.mp4" type="video/mp4" />
+                    </video>
+                    <span class="project-hero-media__caption">"Beautiful" prototype.</span>
+                  </div>
+                </div>
+              </div>
+
+              <p>To our surprise, a prototype featuring the exact same mechanics and design with slightly tweaked graphics received positive feedback from the same testers who had previously expressed criticism. Funnily enough, some of them saw improvements in the ship control parameters, when, of course, no such change occurred.</p>
+              
+              <h4>Guiding by Light</h4>
+              <p>Controlling ships is more complex than it might initially seem. Depending on the distance of the light from the ship, it can be slowed or sped up, allowing player to change the turning arc and get out of many sticky situations between multiple ships.</p>
+
+              <h4>Barely made it</h4>
+              <p>When implementing the game on our engine, we incorporated a generative system that allows for a specific experience in each level. The system allows for setting specific pools of ships that will appear on a given map. Because pools appear randomly, it's impossible to predict the entire course of the map, and each player will experience the same events, such as the arrival of three cargo ships, one large food ship, and two pirates, etc.</p>
+              <p>However, one of the most important elements of this system are the last-chance ships. During playtests, I noticed that players at the end of the level would sometimes give up before the timer ran out. This was because they saw how many points they were lacking, but no ships were available that could deliver that much. However, when a ship that perfectly met the requirements appeared, the fight continued until the very end, generating intense emotions. I decided we couldn't count on such a fate and we need to help it a little. The generative system checks the player's missing points at the appropriate moment before the timer runs out. If the missing points are less than the specified value for a given map, the system will spawn the appropriate number of ships that meet the required points. Furthermore, these ships are selected to minimize their number:</p>
+              <p><i>e.g. When a player is short of 7 points, the system will spawn:<br>1 ship x 5 points + 1 ship x 3 points (2 ships),<br>instead of<br>7 ships x 1 point (7 ships)<br>or<br>2 ships x 3 points + 1 ship x 1 point (3 ships)</i></p>
+              <p>When implementing the ship AI system in the engine, I added a state where ships attempt to slow down and turn slightly before crashing into an iceberg. In the prototypes, non-pirate ships, not controlled by the player, mindlessly sailed forward regardless of what was there. Introducing such a subtle change not only created the feeling that someone was actually on board the ship but also gave players those extra few milliseconds to salvage the situation, again creating the feeling of barely making it.</p>
+
+              <h4>Eureka moment!</h4>
+              <p>Once the lighthouse keeper goes outside, he must collect packages to gain points and resources that can be used to purchase upgrades. He can also interact directly with ships, which will destroy them. This serves a dual purpose: firstly, the player cannot mindlessly navigate the river, as this could destroy the ships they care about. Secondly, the first time this happens, the player has an "Eureka!" moment, realizing that this is also a method for destroying pirate ships. This, among other things, makes leaving the lighthouse not only a chore that requires careful timing, but also an additional tool for managing the situation on the river.</p>
+              <p>To avoid moments of frustration, ships in the bay cannot be destroyed by the lighthouse keeper crashing into them, which would otherwise happen quite often, even by accident, because both ships and the lighthouse keeper must be in the exact same area. And if a ship in the bay begins to sink because another ship hits it, the player can still retrieve cargo from it until it has completely sunk, which also prevents unnecessary frustration.</p>
+
+              <div class="project-hero-media bounce-target">
+                <div class="shake-target">
+                  <img src="eureka1.gif" alt="Destroying pirates and taking cargo from destroyed ship." />
+                  <span class="project-hero-media__caption">Destroying pirates and taking cargo from destroyed ship.</span>
+                </div>
+              </div>
+
             </div>
 
             <div class="contrib contrib--design">
               <h3 class="contrib__title">Level Design</h3>
-              <p>Robiłem poziomy</p>
+              <p>Guiding Light has six levels. Levels 1-3 serve as a tutorial. Levels 4-6 are full-fledged maps, with levels 4 and 5 already existing when the game was in its prototype stage, and level 6 was designed in-game using our engine.</p>
+              <h4>Levels 1-3 — Tutorial</h4>
+              <p>As I mentioned, levels 1-3 serve as a tutorial, and their layout is the result of close cooperation with <a href="https://ganszyniec.com" target="_blank" rel="noopener">Michał Galiński</a> and his tutorial scenario, which you can read more about on <a href="https://mikegalinski.com/blog/post-1/" target="_blank" rel="noopener">his blog</a>. The maps had to be appropriately shaped to teach and demonstrate specific mechanics.</p>
+              <p>The first level teaches our main mechanics: ship control itself, so it's simply a sharp turn that can't be bypassed accidentally or by just slightly steering the ship (red line). However, in this layout, I've added a much faster route for someone who's played through the game a few times and wants to move on to the next maps as quickly as possible (green line). It requires a level of precision I wouldn't expect from someone playing for the first time, and even if they managed to complete the level this way, I'd still be confident they'd understand how ships are controlled in our game.</p>
+
+              <div class="project-gallery project-gallery--1">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level1.png" alt="Level 1" />
+                    <span class="project-hero-media__caption">Level 1</span>
+                  </div>
+                </div>
+              </div>
+
+              <p>The second level teaches the player, among other things, how to use the flash, an action that momentarily stops all ships. This skill is useful in a game where there are a lot of ships and the player wants to save the day or even turn certain ships around. However, creating such a chaotic situation in a level intended to teach the use of such mechanics would be excruciatingly difficult and, moreover, very confusing for the player. Therefore, this map features a narrow passage that requires a relatively long ship to fit through. Of course, a skilled player can guide a ship through this passage without the flash, but this cannot be done accidentally. If I wanted to make the passage even tighter so that the flash was required, navigating this section would be just as difficult with it.</p>
+              <p>Additionally, this map shows the player that water is not a boundary for him and that as a lighthouse keeper he can cross it.</p>
+
+              <div class="project-gallery project-gallery--2">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level2Ships.png" alt="Level 2 Ships" />
+                    <span class="project-hero-media__caption">Level 2 — Ships</span>
+                  </div>
+                </div>
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level2Keeper.png" alt="Level 2 Keeper" />
+                    <span class="project-hero-media__caption">Level 2 — Keeper</span>
+                  </div>
+                </div>
+              </div>
+              
+              <p>The third level introduces the remaining mechanisms needed for a full gameplay loop, so the map resembles a full-fledged level.</p>
+
+              <div class="project-gallery project-gallery--1">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level3.png" alt="Level 3" />
+                    <span class="project-hero-media__caption">Level 3</span>
+                  </div>
+                </div>
+              </div>
+
+              <p>The layout of this level differs from the next one, including a noticeable narrowing on the left side. This is because each map is a continuation of the same river, creating one cohesive whole.</p>
+
+              <div class="project-gallery project-gallery--map">
+                <div class="project-gallery__item bounce-target">
+                  <div class="shake-target">
+                    <img src="map.png" alt="Map" />
+                    <span class="project-hero-media__caption">All Levels</span>
+                  </div>
+                </div>
+              </div>
+
+              <h4>Levels 4 — River</h4>
+              <p>Level four is a layout that has been present almost since the first prototype. The river is positioned so that all ships sailing from the left side can be directed into the bay from the very beginning. Ships sailing from the right side require the player's attention in two stages: before the obstacle, to avoid it, and then directly into the bay.</p>
+              <p>The objects set for interaction for the lighthouse keeper are placed specifically to motivate the player to cross the river to the other side and to place the lighthouse approximately between the three points of interest.</p>
+
+              <div class="project-gallery project-gallery--2">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level4Ships.png" alt="Level 4 Ships" />
+                    <span class="project-hero-media__caption">Level 4 — Ships</span>
+                  </div>
+                </div>
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level4Keeper.png" alt="Level 4 Keeper" />
+                    <span class="project-hero-media__caption">Level 4 — Keeper</span>
+                  </div>
+                </div>
+              </div>
+
+              <h4>Levels 5 — Turn</h4>
+              <p>Level five was also present early in the project's development and represents a natural increase in difficulty. Once again, ships sailing from the left side sail directly into the bay. Ships sailing from the right side require much more attention from the player, as they must be turned around. This introduces a situation where the player sometimes has to make a difficult decision and abandon certain ships rather than attempt to turn them around. The flash ability is also much more important on this map, allowing multiple ships to be turned around at the right moment.</p>
+              <p>On this map, the lighthouse is much further away from the other objects than in the previous level. There's still one object across the river, but it's a different upgrade than in the previous level to prevent the player from constantly using the same tactic.</p>
+
+              <div class="project-gallery project-gallery--2">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level5Ships.png" alt="Level 5 Ships" />
+                    <span class="project-hero-media__caption">Level 5 — Ships</span>
+                  </div>
+                </div>
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level5Keeper.png" alt="Level 5 Keeper" />
+                    <span class="project-hero-media__caption">Level 5 — Keeper</span>
+                  </div>
+                </div>
+              </div>
+
+              <h4>Levels 6 — Crossroad</h4>
+              <p>Level six adds a third side where ships come from, with each side having a different level of attention required.</p>
+              <p>In this map, all interactive objects for the lighthouse keeper require crossing the river, and this is in places where there are often many ships.</p>
+
+              <div class="project-gallery project-gallery--2">
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level6Ships.png" alt="Level 6 Ships" />
+                    <span class="project-hero-media__caption">Level 6 — Ships</span>
+                  </div>
+                </div>
+                <div class="project-hero-media bounce-target">
+                  <div class="shake-target">
+                    <img src="Level6Keeper.png" alt="Level 6 Keeper" />
+                    <span class="project-hero-media__caption">Level 6 — Keeper</span>
+                  </div>
+                </div>
+              </div>
+
+              <h4>More levels</h4>
+              <p>These were all the levels I created for this game. I believe I utilized the mechanics to their full potential in terms of level design, and if I were to expand upon them, creating additional levels would require expanding the game with additional mechanics. Despite this, several ideas emerged during development that I would incorporate into the level design in future production:</p>
+              <div class="feature-columns">
+                <ul class="feature-list">
+                  <li>Two lighthouses</li>
+                  <li>Double-sided bay</li>
+                  <li>H-shaped</li>
+                </ul>
+              </div>
+
             </div>
 
             <p class="contributions-also contributions-also--design">
@@ -268,6 +482,10 @@
                 <a href="https://github.com/0GreenClover0/Engine/commits/main/?author=MiloszKawczynski" class="sidebar-link" target="_blank" rel="noopener">
                   <span class="sidebar-link__icon"><i class="fa-brands fa-github"></i></span>
                   <span>My commits</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=4NOTxV9gPgM" class="sidebar-link" target="_blank" rel="noopener">
+                  <span class="sidebar-link__icon"><i class="fa-brands fa-youtube"></i></span>
+                  <span>Watch Documentary on YT</span>
                 </a>
               </div>
             </div>
