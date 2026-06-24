@@ -546,6 +546,18 @@ body.mode--programming .strong { color: var(--c-light); }
   position: relative;
 }
 
+.contributions-also--programming {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+body.mode--programming .contributions-also--design {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
 @media (max-width: 900px) {
   .project-layout  { grid-template-columns: 1fr; }
   .project-sidebar { position: static; }
@@ -558,4 +570,8 @@ body.mode--programming .strong { color: var(--c-light); }
 @media (max-width: 600px) {
   .project-gallery { grid-template-columns: 1fr; }
   .info-item       { grid-template-columns: 90px 1fr; }
+}
+
+.project-gallery--map {
+  margin-bottom: 1rem;
 }
