@@ -78,6 +78,110 @@ const artworks = [
     date: "2024",
     description: "The work was created in collaboration with the Gastromachina restaurant.\n\n268 x 133\n80 frames\n10 fps",
     size: 4
+  },
+  {
+    src: "./connectroBuildings.png",
+    alt: "Buildings for Connectro",
+    title: "Buildings for Connectro",
+    date: "2025",
+    description: "Building textures created for the game [Connectro](https://miloszkawczynski.github.io/MiloszKawczynski/projects/connectro/connectro.html?mode=design).",
+    size: 2
+  },
+  {
+    src: "./connectroEnviro.png",
+    alt: "Environment for Connectro",
+    title: "Environment for Connectro",
+    date: "2025",
+    description: "Environment created for the game [Connectro](https://miloszkawczynski.github.io/MiloszKawczynski/projects/connectro/connectro.html?mode=design).",
+    size: 2
+  },
+  {
+    src: "./connectroTilesProcess.png",
+    alt: "Tiles Process for Connectro",
+    title: "Tiles Process for Connectro",
+    date: "2025",
+    description: "Graphic showing the entire process of multiple iterations of creating tiles for [Connectro](https://miloszkawczynski.github.io/MiloszKawczynski/projects/connectro/connectro.html?mode=design)",
+    size: 2
+  },
+  {
+    src: "./connectroTilesFinal.png",
+    alt: "Final Tiles for Connectro",
+    title: "Final Tiles for Connectro",
+    date: "2025",
+    description: "The final version of the tiles used for [Connectro](https://miloszkawczynski.github.io/MiloszKawczynski/projects/connectro/connectro.html?mode=design)",
+    size: 2
+  },
+  {
+    src: "./connectroUI.png",
+    alt: "Connectro UI",
+    title: "Connectro UI",
+    date: "2025",
+    description: "UI created for the game [Connectro](https://miloszkawczynski.github.io/MiloszKawczynski/projects/connectro/connectro.html?mode=design).",
+    size: 2
+  },
+  {
+    src: "./dolorSitAmet.png",
+    alt: "Dolor Sit Amet Characters",
+    title: "Dolor Sit Amet Characters",
+    date: "2026",
+    description: "Character graphics prepared for the game jam game Dolor Sit Amet. The characters were specially prepared for the use of the xbr smoothing shader.",
+    size: 2
+  },
+  {
+    src: "./photoTownEnviro.png",
+    alt: "Photo Town Environment",
+    title: "Photo Town Environment",
+    date: "2022",
+    description: "Environment created for the game Photo Town",
+    size: 2
+  },
+  {
+    src: "./photoTownTiles.png",
+    alt: "Tiles for Photo Town",
+    title: "Tiles for Photo Town",
+    date: "2022",
+    description: "Tiles created for the game Photo Town",
+    size: 2
+  },
+  {
+    src: "./photoTownPhotographers.png",
+    alt: "Characters for Photo Town",
+    title: "Characters for Photo Town",
+    date: "2022",
+    description: "Characters created for the game Photo Town",
+    size: 2
+  },
+  {
+    src: "./photoTownNPCs.png",
+    alt: "NPCs for Photo Town",
+    title: "NPCs for Photo Town",
+    date: "2022",
+    description: "NPCs created for the game Photo Town",
+    size: 2
+  },
+  {
+    src: "./squrVeil.png",
+    alt: "Squr Veil",
+    title: "Squr Veil character for The Little Ones",
+    date: "2022",
+    description: "Squr Veil character for [The Little Ones](https://gamejolt.com/games/TheLittleOnes/745037)",
+    size: 2
+  },
+  {
+    src: "./maskedMouse.png",
+    alt: "Masked Mouse",
+    title: "Masked Mouse character for The Little Ones",
+    date: "2022",
+    description: "Masked Mouse character for [The Little Ones](https://gamejolt.com/games/TheLittleOnes/745037)",
+    size: 2
+  },
+  {
+    src: "./sprites.png",
+    alt: "Characters from Gravity Tag",
+    title: "Characters from Gravity Tag",
+    date: "2025",
+    description: "Characters from [Gravity Tag](https://miloszkawczynski.github.io/MiloszKawczynski/projects/gravityTag/gravityTag.html?mode=design)",
+    size: 2
   }
 ];
 
